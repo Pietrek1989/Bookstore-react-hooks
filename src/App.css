@@ -5,12 +5,43 @@
 
 
 
-
+.card {
+  position: relative;
+}
 .card-image{
   height: 50vh;
 }
 .card-title {
-  height: 20vh;
+  height: 15vh;
+
+}
+.card .h5, h5 {
+  font-size: 1.1rem;
+}
+.card:hover {
+  scale: 1.1;
+  z-index: 1;
+}
+.card-footer {
+  display: none;
+}
+.card-body {
+  display: none;
+}
+.card:hover .card-footer{
+  display: block;
+  z-index: 1;
+  position: absolute;
+
+}
+.card:hover .card-body  {
+  display: block;
+  z-index: 1;
+  position: absolute;
+  top: 350px;
+  background-color: #c0e1cf;
+  width: 100%;
+
 }
 
 #hero-cover {
@@ -29,4 +60,8 @@
 
 .row-buttons {
   gap: 5px;
+}
+
+.price {
+  color: green;
 }

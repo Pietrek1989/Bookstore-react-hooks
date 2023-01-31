@@ -69,14 +69,14 @@ class AllBooks extends Component {
             <Col xs={6} sm={6} md={4} lg={3} xl={3} key={singleBook.asin} >
                 <Card className="mb-2">
                     <Card.Img className="card-image" variant="top" src={singleBook.img} />
-                    <Card.Body>
-                        <Card.Title className="card-title d-flex align-items-center">{singleBook.title}</Card.Title>
+                    <Card.Body className="card-body">
+                        <Card.Title className="card-title d-flex align-items-center font-italic">{singleBook.title}</Card.Title>
                         <Card.Text>
                         {singleBook.cattegory}
                         </Card.Text>
                     </Card.Body>
-                    <Card.Footer>
-                        <small className="text-muted">${singleBook.price}</small>
+                    <Card.Footer className="card-footer">
+                        <small className="badge badge-success ">${singleBook.price}</small>
                     </Card.Footer>
                 </Card>
             </Col>
