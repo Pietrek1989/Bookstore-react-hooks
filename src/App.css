@@ -26,3 +26,7 @@
   filter: drop-shadow(2px 4px 6px black);
   color: white;
 }
+
+.row-buttons {
+  gap: 5px;
+}

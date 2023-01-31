@@ -4,7 +4,6 @@ import NavBar from "./Components/NavBar";
 import Footer from "./Components/Footer";
 import Hero from "./Components/Hero";
 import AllBooks from "./Components/AllBooks";
-import cover from "./assets/cover.png";
 
 function App() {
   return (
@@ -13,7 +12,7 @@ function App() {
         <NavBar />
       </div>
       <div>
-        <Hero name="MAGICAL BOOKSTORE"></Hero>
+        <Hero name="✨MAGICAL BOOKSTORE✨"></Hero>
       </div>
       <div>
         <AllBooks></AllBooks>
