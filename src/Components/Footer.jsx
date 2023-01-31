@@ -10,7 +10,7 @@ const Footer = (props) => {
 
         <div>
           <a href="https://facebook.com" className='me-4 text-reset'>
-            <MDBIcon fab icon="facebook-f" />
+          <i class="bi bi-facebook"></i>
           </a>
           <a href="https://twitter.com" className='me-4 text-reset'>
             <MDBIcon fab icon="twitter" />

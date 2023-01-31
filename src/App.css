@@ -58,8 +58,8 @@
   color: white;
 }
 
-.row-buttons {
-  gap: 5px;
+.container .row .row-buttons .btn  {
+  border-radius: 0;
 }
 
 .price {
