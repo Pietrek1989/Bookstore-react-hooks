@@ -1,0 +1,28 @@
+
+#body {
+  background-color: #97bba847;
+}
+
+
+
+
+.card-image{
+  height: 50vh;
+}
+.card-title {
+  height: 20vh;
+}
+
+#hero-cover {
+
+  background-image: url("assets/cover.png");
+
+  height: 500px; /* You must set a specified height */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
+}
+.name {
+  filter: drop-shadow(2px 4px 6px black);
+  color: white;
+}
