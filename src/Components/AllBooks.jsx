@@ -7,13 +7,18 @@ import romance from "../Data/romance.json"
 import { Row, Card, Container, Col, Button } from "react-bootstrap";
 
 
+
+
+
+  
+
 class AllBooks extends Component {
     state = {
         selectedCategory: fantasy,
     };
     render() {
         return (
-            <Container>
+            <Container fluid>
                 <Row className="justify-content-center mb-3 row-buttons">
                     
                     <Button onClick={() => {
@@ -21,7 +26,7 @@ class AllBooks extends Component {
                         selectedCategory: fantasy,
                         });
                     }}
-                    variant="info"
+                    variant="info" id="first-button"
                     > Fantasy 
                     </Button>
 
@@ -57,7 +62,7 @@ class AllBooks extends Component {
                         selectedCategory: history,
                         });
                     }}
-                    variant="info"
+                    variant="info"  id="last-button"
                     > History 
                     </Button>
 
@@ -66,7 +71,7 @@ class AllBooks extends Component {
 
             {this.state.selectedCategory.map((singleBook) => {
                 return (
-            <Col xs={6} sm={6} md={4} lg={3} xl={3} key={singleBook.asin} >
+            <Col xs={6} sm={6} md={4} lg={3} xl={2} key={singleBook.asin} >
                 <Card className="mb-2">
                     <Card.Img className="card-image" variant="top" src={singleBook.img} />
                     <Card.Body className="card-body">
