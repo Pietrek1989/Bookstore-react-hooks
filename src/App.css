@@ -77,10 +77,17 @@
 
 
 .red {
-  border: solid 5px rgb(6, 243, 17) !important;
+  border: solid 3px rgb(6, 243, 17) !important;
 }
 #inputGroup-sizing-sm{
   height: 31px;
+}
+small .bi-check-lg {
+
+  color: white;
+}
+small {
+  background-color: blue;
 }
 
 @media only screen and (max-width: 600px) {
