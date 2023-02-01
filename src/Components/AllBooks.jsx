@@ -4,7 +4,7 @@ import history from "../Data/history.json"
 import horror from "../Data/horror.json"
 import sciFi from "../Data/scifi.json"
 import romance from "../Data/romance.json"
-import { Row, Container, Button, InputGroup, Form } from "react-bootstrap";
+import { Row, Container, Button, InputGroup, Form, Col } from "react-bootstrap";
 import SingleBook from "./SingleBook";
 
 
@@ -23,6 +23,7 @@ class AllBooks extends Component {
     render() {
         return (
             <Container fluid>
+
                 <Row className="justify-content-center mb-3 row-buttons">
                     
                     <Button onClick={() => {
@@ -69,8 +70,20 @@ class AllBooks extends Component {
                     variant="info"  id="last-button"
                     > History 
                     </Button>
+                    <Button className="mt-3" onClick={() => {
+                    this.setState({
+                        searchedtitles: "",
+                        });
+                    }}
+                    variant="warning"  id="last-button"
+                    > Reset State
+                    </Button>
+
 
                 </Row>
+                <div className="d-flex justify-content-center">
+                <Col xs={12} md={6}>
+                <Row>
                 <InputGroup size="sm" className="mb-3">
         <InputGroup.Text id="inputGroup-sizing-sm"><i class="fas fa-search"></i></InputGroup.Text>
         <Form.Control
@@ -89,7 +102,11 @@ class AllBooks extends Component {
           }}
         />
       </InputGroup>
-            <Row>
+            </Row>
+            </Col>
+            </div>
+      <Container fluid>
+        <Row>
 
             {this.state.searchedtitles ? this.state.searchedtitles.map((singleBook) => {
                 return (
@@ -109,6 +126,7 @@ class AllBooks extends Component {
         }     
             
           </Row>
+          </Container>
           </Container>
         );
       
