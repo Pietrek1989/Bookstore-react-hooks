@@ -4,7 +4,9 @@ import history from "../Data/history.json"
 import horror from "../Data/horror.json"
 import sciFi from "../Data/scifi.json"
 import romance from "../Data/romance.json"
-import { Row, Card, Container, Col, Button } from "react-bootstrap";
+import { Row, Container, Button, InputGroup, Form } from "react-bootstrap";
+import SingleBook from "./SingleBook";
+
 
 
 
@@ -15,6 +17,8 @@ import { Row, Card, Container, Col, Button } from "react-bootstrap";
 class AllBooks extends Component {
     state = {
         selectedCategory: fantasy,
+        search: " ",
+        searchedtitles: false,
     };
     render() {
         return (
@@ -67,27 +71,42 @@ class AllBooks extends Component {
                     </Button>
 
                 </Row>
+                <InputGroup size="sm" className="mb-3">
+        <InputGroup.Text id="inputGroup-sizing-sm">Small</InputGroup.Text>
+        <Form.Control
+          aria-label="Search"
+          aria-describedby="inputGroup-sizing-sm"
+          value={this.state.search}
+          onChange={(e) => {
+            const results = this.state.selectedCategory.filter(book => {
+                if (e.target.value === "") return this.state.selectedCategory
+                return book.title.toLowerCase().includes(e.target.value.toLowerCase())
+                })
+            this.setState({
+                search: e.target.value,
+                searchedtitles: results
+            })
+
+          }}
+        />
+      </InputGroup>
             <Row>
 
-            {this.state.selectedCategory.map((singleBook) => {
+            {this.state.searchedtitles ? this.state.searchedtitles.map((singleBook) => {
                 return (
-            <Col xs={6} sm={6} md={4} lg={3} xl={2} key={singleBook.asin} >
-                <Card className="mb-2">
-                    <Card.Img className="card-image" variant="top" src={singleBook.img} />
-                    <Card.Body className="card-body">
-                        <Card.Title className="card-title d-flex align-items-center font-italic">{singleBook.title}</Card.Title>
-                        <Card.Text>
-                        {singleBook.cattegory}
-                        </Card.Text>
-                    </Card.Body>
-                    <Card.Footer className="card-footer">
-                        <small className="badge badge-success ">${singleBook.price}</small>
-                    </Card.Footer>
-                </Card>
-            </Col>
+
+                    <SingleBook currentBook={singleBook}></SingleBook>
                 )
             })
-        }
+             : this.state.selectedCategory.map((singleBook) => {
+                return (
+
+                    <SingleBook currentBook={singleBook}></SingleBook>
+
+                )
+            })
+            
+        }     
             
           </Row>
           </Container>
