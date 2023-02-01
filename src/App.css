@@ -82,3 +82,13 @@
 #inputGroup-sizing-sm{
   height: 31px;
 }
+
+@media only screen and (max-width: 600px) {
+  .para {
+    display: none
+    
+  }
+  .name {
+    font-size: 3.5em;
+  }
+}

@@ -6,7 +6,7 @@ const Hero = (props) => {
 <Jumbotron fluid id="hero-cover" >
         <Container>
             <h1 className=" p-3 mb-5  name">🖐WELCOME TO OUR {props.name}</h1>
-            <h5 className=" p-3 mb-5  name">Discover a world of endless reading possibilities with our online ebook store! <br></br>With over a million titles to choose from, you'll never run out of options for your next great read.<br></br></h5>
+            <h5 className=" p-3 mb-5  name para">Download books instantly to your device and enjoy reading on the go, without any hassle.<br></br>Sign up today and start your journey into a world of endless stories and endless adventures..</h5>
         </Container>
 </Jumbotron>
     )
