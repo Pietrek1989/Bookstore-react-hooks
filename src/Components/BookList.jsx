@@ -1,5 +1,5 @@
 import { Component } from "react";
-import { Row, Container, InputGroup, Form } from "react-bootstrap";
+import { Row, Container, InputGroup, Form, Col } from "react-bootstrap";
 import SingleBook from "./SingleBook";
 
 
@@ -17,17 +17,19 @@ class BookList extends Component {
     render() {
         return (
             <Container fluid>
+                <div className="d-flex justify-content-center">
+                <Col xs={12} md={6}>
 
             <Row>
-            <InputGroup size="sm" className="mb-3">
-        <InputGroup.Text id="inputGroup-sizing-sm">Small</InputGroup.Text>
+            <InputGroup  size="sm" className="mb-3">
+        <InputGroup.Text id="inputGroup-sizing-sm"><i class="fas fa-search"></i></InputGroup.Text>
         <Form.Control
           aria-label="Search"
           aria-describedby="inputGroup-sizing-sm"
+          placeholder="Write a title of a searched book"
           value={this.state.search}
           onChange={(e) => {
             const results = this.props.genre.filter(book => {
-                if (e.target.value === "") return this.props.genre
                 return book.title.toLowerCase().includes(e.target.value.toLowerCase())
                 })
             this.setState({
@@ -37,7 +39,13 @@ class BookList extends Component {
 
           }}
         />
+        
       </InputGroup>
+      </Row>
+      </Col>
+      </div>
+      <Container fluid>
+        <Row>
             {this.state.searchedtitles.map((singleBook) => {
                 return (
                     <SingleBook currentBook={singleBook}></SingleBook>
@@ -48,6 +56,7 @@ class BookList extends Component {
         
             
           </Row>
+          </Container>
           </Container>
         );
       

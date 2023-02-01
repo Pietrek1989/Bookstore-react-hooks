@@ -11,7 +11,7 @@
   height: 45vh;
 }
 .card-title {
-  height: 15vh;
+  height: 10vh;
 
 }
 .card .h5, h5 {
@@ -77,5 +77,8 @@
 
 
 .red {
-  border: solid 5px greenyellow !important;
+  border: solid 5px rgb(6, 243, 17) !important;
+}
+#inputGroup-sizing-sm{
+  height: 31px;
 }
