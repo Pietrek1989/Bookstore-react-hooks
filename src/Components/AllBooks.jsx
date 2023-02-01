@@ -88,6 +88,7 @@ class AllBooks extends Component {
         <Form.Control
           aria-label="Search"
           aria-describedby="inputGroup-sizing-sm"
+          placeholder="Write a title of a searched book"
           value={this.state.search}
           onChange={(e) => {
             const results = this.state.selectedCategory.filter(searchBook => {
