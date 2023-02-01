@@ -20,6 +20,7 @@ class AllBooks extends Component {
         search: " ",
         searchedtitles: "",
     };
+
     render() {
         return (
             <Container fluid>
@@ -29,7 +30,8 @@ class AllBooks extends Component {
                     <Button onClick={() => {
                     this.setState({
                         selectedCategory: fantasy,
-                        });
+                        searchedtitles: "",
+                    });
                     }}
                     variant="info" id="first-button"
                     > Fantasy 
@@ -38,7 +40,8 @@ class AllBooks extends Component {
                     <Button onClick={() => {
                     this.setState({
                         selectedCategory: horror,
-                        });
+                        searchedtitles: "",
+                    });
                     }}
                     variant="info"
                     > Horror 
@@ -47,7 +50,8 @@ class AllBooks extends Component {
                     <Button onClick={() => {
                     this.setState({
                         selectedCategory: romance,
-                        });
+                        searchedtitles: "",
+                    });
                     }}
                     variant="info"
                     > Romance 
@@ -56,7 +60,8 @@ class AllBooks extends Component {
                     <Button onClick={() => {
                     this.setState({
                         selectedCategory: sciFi,
-                        });
+                        searchedtitles: "",
+                    });
                     }}
                     variant="info"
                     > SciFi 
@@ -65,19 +70,13 @@ class AllBooks extends Component {
                     <Button onClick={() => {
                     this.setState({
                         selectedCategory: history,
-                        });
+                        searchedtitles: "",
+                    });
                     }}
                     variant="info"  id="last-button"
                     > History 
                     </Button>
-                    <Button className="mt-3" onClick={() => {
-                    this.setState({
-                        searchedtitles: "",
-                        });
-                    }}
-                    variant="warning"  id="last-button"
-                    > Reset State
-                    </Button>
+
 
 
                 </Row>
