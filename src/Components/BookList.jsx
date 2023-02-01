@@ -22,15 +22,15 @@ class BookList extends Component {
 
             <Row>
             <InputGroup  size="sm" className="mb-3">
-        <InputGroup.Text id="inputGroup-sizing-sm"><i class="fas fa-search"></i></InputGroup.Text>
+        <InputGroup.Text id="inputGroup-sizing-sm"><i className="fas fa-search"></i></InputGroup.Text>
         <Form.Control
           aria-label="Search"
           aria-describedby="inputGroup-sizing-sm"
           placeholder="Write a title of a searched book"
           value={this.state.search}
           onChange={(e) => {
-            const results = this.props.genre.filter(book => {
-                return book.title.toLowerCase().includes(e.target.value.toLowerCase())
+            const results = this.props.genre.filter(searchBook => {
+                return searchBook.title.toLowerCase().includes(e.target.value.toLowerCase())
                 })
             this.setState({
                 search: e.target.value,

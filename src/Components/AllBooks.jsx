@@ -18,7 +18,7 @@ class AllBooks extends Component {
     state = {
         selectedCategory: fantasy,
         search: " ",
-        searchedtitles: "",
+        searchedtitles: false,
     };
 
     render() {
@@ -84,14 +84,14 @@ class AllBooks extends Component {
                 <Col xs={12} md={6}>
                 <Row>
                 <InputGroup size="sm" className="mb-3">
-        <InputGroup.Text id="inputGroup-sizing-sm"><i class="fas fa-search"></i></InputGroup.Text>
+        <InputGroup.Text id="inputGroup-sizing-sm"><i className="fas fa-search"></i></InputGroup.Text>
         <Form.Control
           aria-label="Search"
           aria-describedby="inputGroup-sizing-sm"
           value={this.state.search}
           onChange={(e) => {
-            const results = this.state.selectedCategory.filter(book => {
-                return book.title.toLowerCase().includes(e.target.value.toLowerCase())
+            const results = this.state.selectedCategory.filter(searchBook => {
+                return searchBook.title.toLowerCase().includes(e.target.value.toLowerCase())
                 })
             this.setState({
                 search: e.target.value,
@@ -110,14 +110,14 @@ class AllBooks extends Component {
             {this.state.searchedtitles ? this.state.searchedtitles.map((singleBook) => {
                 return (
 
-                    <SingleBook currentBook={singleBook}></SingleBook>
+                    <SingleBook key={singleBook.asin} currentBook={singleBook}></SingleBook>
                 )
         
             })
              : this.state.selectedCategory.map((singleBook) => {
                 return (
 
-                    <SingleBook currentBook={singleBook}></SingleBook>
+                    <SingleBook key={singleBook.asin} currentBook={singleBook}></SingleBook>
 
                 )
             })

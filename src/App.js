@@ -21,8 +21,8 @@ function App() {
         <Hero name="✨MAGICAL BOOKSTORE✨"></Hero>
       </div>
       <div>
-        {/* <AllBooks></AllBooks> */}
-        <BookList genre={fantasy}></BookList>
+        <AllBooks></AllBooks>
+        {/* <BookList genre={fantasy}></BookList> */}
       </div>
       <div>
         <Footer name="MAGICAL BOOKSTORE"></Footer>
