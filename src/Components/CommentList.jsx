@@ -3,7 +3,6 @@ import { Card, Button } from "react-bootstrap";
 import Error from "./Error";
 
 class CommentsList extends Component {
-
 state = {
     isError: false,
     errorMessage: "",
@@ -36,8 +35,10 @@ state = {
             errorMessage: error,
           })
         }
-      }
-    render() {
+}
+
+
+render() {
         return (
             <div>
 
