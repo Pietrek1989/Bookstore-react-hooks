@@ -48,7 +48,7 @@ class BookList extends Component {
         <Row>
             {this.state.searchedtitles.map((singleBook) => {
                 return (
-                    <SingleBook currentBook={singleBook}></SingleBook>
+                    <SingleBook currentBook={singleBook} key={singleBook.asin}></SingleBook>
                 )
             })
         }
