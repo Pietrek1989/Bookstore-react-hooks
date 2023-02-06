@@ -1,20 +1,19 @@
-
 #body {
   background-color: #97bba847;
 }
 
-
 .card {
   position: relative;
 }
-.card-image{
-  height: 45vh;
+.card-image {
+  height: 35vh;
 }
 /* .card-title {
   height: 10vh;
 
 } */
-.card .h5, h5 {
+.card .h5,
+h5 {
   font-size: 0.9rem;
 }
 .card:hover {
@@ -26,24 +25,21 @@
 /* .card-body {
   display: none;
 } */
-.card:hover .card-footer{
+.card:hover .card-footer {
   display: block;
   z-index: 1;
   position: absolute;
-
 }
-.card-body  {
+.card-body {
   display: block;
   z-index: 2;
   position: absolute;
   top: 345px;
   background-color: #c0e1cf;
   width: 100%;
-
 }
 
 #hero-cover {
-
   background-image: url("assets/cover.png");
 
   height: 500px; /* You must set a specified height */
@@ -56,7 +52,7 @@
   color: white;
 }
 
-.row-buttons .btn-info  {
+.row-buttons .btn-info {
   border-radius: 0;
 }
 
@@ -74,15 +70,13 @@
   border-bottom-left-radius: 10px;
 }
 
-
 .red {
   outline: solid 3px rgb(6, 243, 17) !important;
 }
-#inputGroup-sizing-sm{
+#inputGroup-sizing-sm {
   height: 31px;
 }
 small .bi-check-lg {
-
   color: white;
 }
 small {
@@ -91,14 +85,21 @@ small {
 
 @media only screen and (max-width: 600px) {
   .para {
-    display: none
-    
+    display: none;
   }
   .name {
     font-size: 3.5em;
   }
 }
 
-.h4, h4 {
-  font-size: 1.3rem
+.h4,
+h4 {
+  font-size: 1.3rem;
+}
+
+.for-sticky {
+  position: sticky;
+  top: 20px;
+  background-color: #3fab783b;
+  padding: 10px;
 }
