@@ -102,4 +102,6 @@ h4 {
   top: 20px;
   background-color: #3fab783b;
   padding: 10px;
+  max-height: 95vh;
+  overflow: auto;
 }
