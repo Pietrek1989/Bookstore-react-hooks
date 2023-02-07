@@ -20,16 +20,18 @@ h5 {
   z-index: 1;
 }
 .card-footer {
-  display: none;
-}
-/* .card-body {
-  display: none;
-} */
-.card:hover .card-footer {
   display: block;
   z-index: 1;
   position: absolute;
 }
+/* .card-body {
+  display: none;
+} */
+/* .card:hover .card-footer {
+  display: block;
+  z-index: 1;
+  position: absolute;
+} */
 .card-body {
   display: block;
   z-index: 2;
