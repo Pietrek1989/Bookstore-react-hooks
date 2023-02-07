@@ -26,9 +26,9 @@ class AllBooks extends Component {
       currentBook: newSelectOption,
     });
   };
-  activeBook = () => {
+  activeBook = (state) => {
     this.setState({
-      activeState: !this.state.activeState,
+      activeState: !state,
     });
   };
 
@@ -69,7 +69,7 @@ class AllBooks extends Component {
         </div>
         <Container fluid>
           <Row>
-            <Col xs={6} md={8} className="d-flex flex-wrap ">
+            <Col xs={6} md={9} className="d-flex flex-wrap ">
               {this.state.searchedtitles
                 ? this.state.searchedtitles.map((singleBook) => {
                     return (
@@ -78,6 +78,7 @@ class AllBooks extends Component {
                         currentBook={singleBook}
                         selectBookFunc={this.selectBook}
                         activeBook={this.activeBook}
+                        activeState={this.activeState}
                       ></SingleBook>
                     );
                   })
@@ -93,7 +94,7 @@ class AllBooks extends Component {
                   })}
             </Col>
             {this.state.activeState ? (
-              <Col xs={6} md={4}>
+              <Col xs={6} md={3}>
                 <div className="for-sticky">
                   <h5>{this.state.currentBook.title}</h5>
                   <CommentArea theBook={this.state.currentBook}></CommentArea>

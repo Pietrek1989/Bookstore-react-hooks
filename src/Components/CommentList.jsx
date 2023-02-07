@@ -46,7 +46,7 @@ class CommentsList extends Component {
         <Card.Text className="mb-0 py-1">
           Rating:
           {new Array(this.props.currentComment.rate).fill(null).map(() => (
-            <i class="fas fa-star" />
+            <i className="fas fa-star" />
           ))}
         </Card.Text>
 
@@ -62,7 +62,6 @@ class CommentsList extends Component {
           >
             DELETE
           </Button>
-          <hr />
           {this.state.isError && (
             <Error errorMessage={this.state.errorMessage}></Error>
           )}

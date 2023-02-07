@@ -84,9 +84,6 @@ class AddComment extends Component {
           type="submit"
           onClick={(e) => {
             e.preventDefault();
-            // this.setState({
-            //     active: false,
-            // })
             this.sendComment();
           }}
         >

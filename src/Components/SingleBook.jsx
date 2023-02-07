@@ -10,11 +10,12 @@ class SingleBook extends Component {
     return (
       <Col xs={12} sm={6} md={4} lg={3} xl={2}>
         <Card
-          className={this.state.active ? "my-2 red" : "my-2"}
+          className={this.props.selected ? "my-2 red" : "my-2"}
           onClick={() => {
             this.props.selectBookFunc(this.props.currentBook);
+            // this.setState({ active: !this.state.active });
+            this.props.activeBook(this.state.active);
             this.setState({ active: !this.state.active });
-            this.props.activeBook();
           }}
         >
           <small className={this.state.active ? "badge" : "d-none"}>
@@ -35,12 +36,13 @@ class SingleBook extends Component {
               <AddComment theBook={this.props.currentBook}></AddComment>
             </Card.Body>
           )} */}
-
-          <Card.Footer className="card-footer">
-            <small className="badge badge-success ">
-              ${this.props.currentBook.price}
-            </small>
-          </Card.Footer>
+          {this.state.active && (
+            <Card.Footer className="card-footer">
+              <small className="badge badge-success mt-3 ">
+                ${this.props.currentBook.price}
+              </small>
+            </Card.Footer>
+          )}
         </Card>
       </Col>
     );
