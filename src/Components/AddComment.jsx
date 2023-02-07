@@ -1,25 +1,23 @@
-import { Component } from "react";
+import { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import Error from "./Error";
 
-class AddComment extends Component {
-  state = {
-    commentState: {
-      rate: "1",
-      comment: "",
-      elementId: this.props.theBook.asin,
-    },
-    isError: false,
-    errorMessage: "",
-  };
-  sendComment = async () => {
+const AddComment = (props) => {
+  const [commentState, setCommentState] = useState({
+    rate: "1",
+    comment: "",
+    elementId: props.theBook.asin,
+  });
+  const [isError, setIsError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+  const sendComment = async () => {
     try {
-      console.log("I'm about to send this:", this.state.commentState);
+      console.log("I'm about to send this:", commentState);
       let response = await fetch(
         "https://striveschool-api.herokuapp.com/api/comments/",
         {
           method: "POST",
-          body: JSON.stringify(this.state.commentState),
+          body: JSON.stringify(commentState),
 
           headers: {
             "Content-Type": "application/json",
@@ -31,71 +29,62 @@ class AddComment extends Component {
       console.log(response);
       if (response.ok) {
         alert("Comment saved!");
+        props.load();
       } else {
         // eslint-disable-next-line no-throw-literal
         throw response.status + " " + response.statusText;
       }
     } catch (error) {
       console.log(error);
-      this.setState({
-        isError: true,
-        errorMessage: error,
-      });
+      setIsError(true);
+      setErrorMessage(error);
     }
   };
 
-  render() {
-    return (
-      <Form>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Comment</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="Enter comment"
-            value={this.state.commentState.comment}
-            onChange={(e) => {
-              this.setState({
-                commentState: {
-                  ...this.state.commentState,
-                  comment: e.target.value,
-                },
-              });
-            }}
-          />
-        </Form.Group>
-
-        <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>Rating</Form.Label>
-          <Form.Control
-            type="number"
-            placeholder="Rating"
-            value={this.state.commentState.rate}
-            onChange={(e) => {
-              this.setState({
-                commentState: {
-                  ...this.state.commentState,
-                  rate: e.target.value,
-                },
-              });
-            }}
-          />
-        </Form.Group>
-        <Button
-          variant="primary"
-          type="submit"
-          onClick={(e) => {
-            e.preventDefault();
-            this.sendComment();
+  return (
+    <Form>
+      <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Label>Comment</Form.Label>
+        <Form.Control
+          type="text"
+          placeholder="Enter comment"
+          value={commentState.comment}
+          onChange={(e) => {
+            setCommentState({
+              ...commentState,
+              comment: e.target.value,
+            });
           }}
-        >
-          Submit
-        </Button>
-        {this.state.isError && (
-          <Error errorMessage={this.state.errorMessage}></Error>
-        )}
-      </Form>
-    );
-  }
-}
+        />
+      </Form.Group>
+
+      <Form.Group className="mb-3" controlId="formBasicPassword">
+        <Form.Label>Rating</Form.Label>
+        <Form.Control
+          type="number"
+          placeholder="Rating"
+          value={commentState.rate}
+          onChange={(e) => {
+            setCommentState({
+              ...commentState,
+              rate: e.target.value,
+            });
+          }}
+        />
+      </Form.Group>
+      <Button
+        variant="primary"
+        type="submit"
+        onClick={(e) => {
+          e.preventDefault();
+          sendComment();
+        }}
+      >
+        Submit
+      </Button>
+      {isError && <Error errorMessage={errorMessage}></Error>}
+    </Form>
+  );
+};
 
 export default AddComment;

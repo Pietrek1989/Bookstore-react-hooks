@@ -1,51 +1,47 @@
-import { Component } from "react";
+import { useState } from "react";
 import { Card, Col } from "react-bootstrap";
 
-class SingleBook extends Component {
-  state = {
-    active: false,
-  };
+const SingleBook = (props) => {
+  const [active, setActive] = useState(false);
 
-  render() {
-    return (
-      <Col xs={12} sm={6} md={4} lg={3} xl={2}>
-        <Card
-          className={this.props.selected ? "my-2 red" : "my-2"}
-          onClick={() => {
-            this.props.selectBookFunc(this.props.currentBook);
-            // this.setState({ active: !this.state.active });
-            this.props.activeBook(this.state.active);
-            this.setState({ active: !this.state.active });
-          }}
-        >
-          <small className={this.state.active ? "badge" : "d-none"}>
-            <i className="bi bi-check-lg"></i>
-          </small>
-          <Card.Img
-            className="card-image"
-            variant="top"
-            src={this.props.currentBook.img}
-          />
-          {/* 
-          {this.state.active && ( //
+  return (
+    <Col xs={12} sm={6} md={4} lg={3} xl={2}>
+      <Card
+        className={active ? "my-2 red" : "my-2"}
+        onClick={() => {
+          props.selectBookFunc(props.currentBook);
+          // setState({ active: !state.active });
+          props.activeBook(active);
+          setActive(!active);
+        }}
+      >
+        <small className={active ? "badge" : "d-none"}>
+          <i className="bi bi-check-lg"></i>
+        </small>
+        <Card.Img
+          className="card-image"
+          variant="top"
+          src={props.currentBook.img}
+        />
+        {/* 
+          {state.active && ( //
             <Card.Body
               className="card-body"
               onClick={(e) => e.stopPropagation()}
             >
-              <CommentArea theBook={this.props.currentBook}></CommentArea>
-              <AddComment theBook={this.props.currentBook}></AddComment>
+              <CommentArea theBook={props.currentBook}></CommentArea>
+              <AddComment theBook={props.currentBook}></AddComment>
             </Card.Body>
           )} */}
-          {this.state.active && (
-            <Card.Footer className="card-footer">
-              <small className="badge badge-success mt-3 ">
-                ${this.props.currentBook.price}
-              </small>
-            </Card.Footer>
-          )}
-        </Card>
-      </Col>
-    );
-  }
-}
+        {active && (
+          <Card.Footer className="card-footer">
+            <small className="badge badge-success mt-3 ">
+              ${props.currentBook.price}
+            </small>
+          </Card.Footer>
+        )}
+      </Card>
+    </Col>
+  );
+};
 export default SingleBook;
