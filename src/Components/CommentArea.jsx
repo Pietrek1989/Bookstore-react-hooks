@@ -24,7 +24,6 @@ const CommentArea = (props) => {
       );
       if (response.ok) {
         let data = await response.json();
-
         setComments(data);
         setIsLoading(false);
       } else {
@@ -47,6 +46,7 @@ const CommentArea = (props) => {
   };
   useEffect(() => {
     fetchComments();
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -62,15 +62,14 @@ const CommentArea = (props) => {
       {comments.map((singleComment) => {
         return (
           <CommentsList
+            key={singleComment.asin}
             currentComment={singleComment}
             bookName={props.theBook}
-            key={singleComment.elementId}
             load={afterLoad}
-          ></CommentsList>
+          />
         );
       })}
       <AddComment theBook={props.theBook} load={afterLoad}></AddComment>
-
       {/* <Button  variant="primary">Add new Comment</Button> */}
       {/* <AddComment></AddComment> */}
     </>
