@@ -89,7 +89,7 @@ const AllBooks = () => {
               </div>
             </Col>
           ) : (
-            <Col xs={6} md={4}>
+            <Col xs={6} md={3}>
               <h3 className="text-info">Click on a Book to See comments</h3>
             </Col>
           )}
