@@ -10,6 +10,10 @@ const CommentArea = (props) => {
   const [isError, setIsError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
+  const afterLoad = () => {
+    fetchComments();
+  };
+
   const fetchComments = async () => {
     try {
       let response = await fetch(
@@ -41,9 +45,6 @@ const CommentArea = (props) => {
     }
   };
 
-  const afterLoad = () => {
-    fetchComments();
-  };
   useEffect(() => {
     fetchComments();
 
@@ -70,8 +71,6 @@ const CommentArea = (props) => {
         );
       })}
       <AddComment theBook={props.theBook} load={afterLoad}></AddComment>
-      {/* <Button  variant="primary">Add new Comment</Button> */}
-      {/* <AddComment></AddComment> */}
     </>
   );
 };

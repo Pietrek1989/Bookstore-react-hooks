@@ -5,6 +5,7 @@ import Error from "./Error";
 const CommentsList = (props) => {
   const [isError, setIsError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+
   const deleteComment = async () => {
     try {
       console.log("I'm about to delete this:", props.currentComment._ids);

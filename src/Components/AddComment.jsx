@@ -10,6 +10,7 @@ const AddComment = (props) => {
   });
   const [isError, setIsError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+
   const sendComment = async () => {
     try {
       console.log("I'm about to send this:", commentState);

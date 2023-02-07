@@ -27,7 +27,7 @@ const AllBooks = () => {
     <Container fluid>
       <ButtonsGenre selectedGenre={selectGenre}></ButtonsGenre>
 
-      <div className="d-flex justify-content-center">
+      <div className="d-flex justify-content-center mt-0 pt-0">
         <Col xs={12} md={6}>
           <Row>
             <InputGroup size="sm" className="mb-3">
@@ -65,6 +65,7 @@ const AllBooks = () => {
                       selectBookFunc={selectBook}
                       activeBook={activeBook}
                       activeState={activeState}
+                      selectedBook={currentBook}
                     ></SingleBook>
                   );
                 })
@@ -76,6 +77,7 @@ const AllBooks = () => {
                       selectBookFunc={selectBook}
                       activeBook={activeBook}
                       activeState={activeState}
+                      selectedBook={currentBook}
                     ></SingleBook>
                   );
                 })}
