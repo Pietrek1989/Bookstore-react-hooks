@@ -25,6 +25,7 @@ class CommentsList extends Component {
       if (response.ok) {
         alert("comment deleted!");
       } else {
+        // eslint-disable-next-line no-throw-literal
         throw response.status + " " + response.statusText;
       }
     } catch (error) {

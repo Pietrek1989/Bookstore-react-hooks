@@ -32,6 +32,7 @@ class AddComment extends Component {
       if (response.ok) {
         alert("Comment saved!");
       } else {
+        // eslint-disable-next-line no-throw-literal
         throw response.status + " " + response.statusText;
       }
     } catch (error) {

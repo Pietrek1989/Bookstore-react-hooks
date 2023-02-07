@@ -33,6 +33,7 @@ class CommentArea extends Component {
         this.setState({
           isLoading: false,
         });
+        // eslint-disable-next-line no-throw-literal
         throw response.status + " " + response.statusText;
       }
     } catch (error) {
