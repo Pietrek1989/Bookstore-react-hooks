@@ -99,3 +99,6 @@ h4 {
   max-height: 95vh;
   overflow: auto;
 }
+.navbar-nav a:hover {
+  text-decoration: none !important;
+}
